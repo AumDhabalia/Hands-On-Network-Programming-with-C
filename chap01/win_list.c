@@ -45,9 +45,9 @@ int main() {
 
 
     DWORD asize = 20000;
-    PIP_ADAPTER_ADDRESSES adapters;
+    PIP_ADAPTER_INFO adapters;
     do {
-        adapters = (PIP_ADAPTER_ADDRESSES)malloc(asize);
+        adapters = (PIP_ADAPTER_INFO)malloc(asize);
 
         if (!adapters) {
             printf("Couldn't allocate %ld bytes for adapters.\n", asize);
@@ -71,7 +71,7 @@ int main() {
     } while (!adapters);
 
 
-    PIP_ADAPTER_ADDRESSES adapter = adapters;
+    PIP_ADAPTER_INFO adapter = adapters;
     while (adapter) {
         printf("\nAdapter name: %S\n", adapter->FriendlyName);
 
